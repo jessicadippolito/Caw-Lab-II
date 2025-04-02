@@ -1,5 +1,7 @@
 import sys
 import heifer_generator
+from dragon import Dragon
+from ice_dragon import IceDragon
 
 args = sys.argv
 cows = heifer_generator.get_cows()
@@ -26,6 +28,11 @@ if args[1] == '-n':
         print()
         cow = find_cow(name, cows)
         print(cow.image)
+        if isinstance(cow,Dragon) == True:
+            if isinstance(cow,IceDragon):
+                print("This dragon cannot breathe fire.")
+            else:
+                print("This dragon can breathe fire.")
 elif args[1] == '-l':
     print('Cows available: ', end = '')
     list_cows(cows)
